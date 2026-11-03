@@ -38,7 +38,7 @@ async function main() {
   await laporan.deleteMany({});
   await dinas.deleteMany({});
 
-  const dinas = await dinas.insertMany([
+  const daftarDinas = await dinas.insertMany([
     { kode: 'DPU', nama: 'Dinas Pekerjaan Umum' },
     { kode: 'DED', nama: 'Dinas Edukasi' },
     { kode: 'DKE', nama: 'Dinas Kebudayaan' },
@@ -53,11 +53,11 @@ async function main() {
       kecamatan: kecamatan[i % kecamatan.length],
       kelurahan: kelurahan[i % kelurahan.length],
     },
-    dinasId: dinas[i % dinas.length]._id,
+    dinasId: daftarDinas[i % daftarDinas.length]._id,
   }));
   await laporan.insertMany(laporanData);
 
-  console.log(`Seed selesai: ${dinas.length} dinas, ${laporanData.length} laporan`);
+  console.log(`Seed selesai: ${daftarDinas.length} dinas, ${laporanData.length} laporan`);
   await mongoose.disconnect();
 }
 
