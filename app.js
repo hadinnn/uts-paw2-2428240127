@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const logger = require('./middlewares/logger');
 const { notFoundHandler, errorHandler } = require('./middlewares/errorHandler');
 
-const categoriesRoutes = require('./routes/categoriesRoutes'); 
-const articlesRoutes = require('./routes/articlesRoutes');
+const dinasRoutes = require('./routes/dinasRoutes'); 
+const laporanRoutes = require('./routes/laporanRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 // ---------- Route per modul ----------
 app.use('/laporan', laporanRoutes);
-app.use('/categories', categoriesRoutes); 
+app.use('/dinas', dinasRoutes); 
 
 // ---------- Handler 404 dan error handler (paling bawah) ----------
 app.use(notFoundHandler);
